@@ -7,23 +7,39 @@ class WeatherService
   base_uri 'https://api.openweathermap.org/data/2.5'
   # attr_accessor :token
 
+
   def initialize
     token = YAML.load_file('token.yml')
     @token = token['token']
   end
 
   def single_location(location)
-    JSON.parse(self.class.get("/weather?id={location}" + "#{@token}").body)
+    JSON.parse(self.class.get("/weather?id=#{location}" + "#{@token}").body)
   end
 
   def multiple_locations(location_array)
-    JSON.parse(self.class.get("/group?id=", body: {"location": location_array} + "#{@token}").body)
+    JSON.parse(self.class.get("/group?id=" + "#{location_array.map{|id| id }.join(',')}" + "&units=metric" + "#{@token}").body) #why no hash with the units=metric code?
   end
 
 end
 
 # city = WeatherService.new
-# puts city.single_location('london')
+# puts city.single_location("707860")
+
+# array = [2, 5, 1]
+# puts "The numbers you entered in the array were: #{array.map{|num| num }.join(',')}"
+#
+
+# "#{location_array.map{|code| code }.join(',')}"
+# array = ['707860', '519188']
+#
+# puts "The numbers you entered in the array were: #{array.map{|num| num }.join(',')}"
 
 cities = WeatherService.new
-puts cities.multiple_locations(['819827', '524901'])
+p cities.multiple_locations(["707860", "519188"])
+
+# def tests(location_array)
+#   "/group?id=" + "#{location_array.map{|id| id }.join(',')}" + "&units=metric" + "#{@token}"
+# end
+#
+# puts tests(["707860", "519188"])
