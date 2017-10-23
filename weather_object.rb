@@ -4,9 +4,8 @@ require 'yaml'
 
 class WeatherService
   include HTTParty
+  
   base_uri 'https://api.openweathermap.org/data/2.5'
-  # attr_accessor :token
-
 
   def initialize
     token = YAML.load_file('token.yml')
