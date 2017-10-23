@@ -4,7 +4,7 @@ require 'yaml'
 
 class WeatherService
   include HTTParty
-  
+
   base_uri 'https://api.openweathermap.org/data/2.5'
 
   def initialize
@@ -35,7 +35,7 @@ end
 # puts "The numbers you entered in the array were: #{array.map{|num| num }.join(',')}"
 
 cities = WeatherService.new
-p cities.multiple_locations(["707860", "519188"])
+p cities.multiple_locations(["707860", "519188"].sample(1))
 
 # def tests(location_array)
 #   "/group?id=" + "#{location_array.map{|id| id }.join(',')}" + "&units=metric" + "#{@token}"
