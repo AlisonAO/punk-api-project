@@ -53,7 +53,7 @@ The class in this project tests multiple city IDs and a single city ID.
 To change the single city tested, edit the City ID in the weather_spec.rb file to an ID of your choice.
   `@city = service.single_location('City ID')`
   
--
+--  
 
 To run the tests: 
 
