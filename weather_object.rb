@@ -6,7 +6,7 @@ class WeatherService
   include HTTParty
 
   base_uri 'https://api.openweathermap.org/data/2.5'
-# <--- In order to
+# <--- In order to use the token, it needs to be in a initialize method and called from the yaml file. --->
   def initialize
     token = YAML.load_file('token.yml')
     @token = token['token']
