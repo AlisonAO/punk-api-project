@@ -17,7 +17,7 @@ class WeatherService
   end
 
   def multiple_locations(location_array)
-    JSON.parse(self.class.get("/group?id=" + "#{location_array.map{ |id| id }.join(',')}" + "&units=metric" + "#{@token}").body) #why no hash with the units=metric code?
+    JSON.parse(self.class.get("/group?id=" + "#{location_array.map{ |id| id }.join(',')}" + "&units=metric" + "#{@token}").body) 
   end
 
 end
