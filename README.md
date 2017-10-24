@@ -30,6 +30,16 @@ You will need the following gems:
 * JSON
 * HTTParty
 
+To install the gems you need to type
+
+ `gem install yaml`
+ 
+ `gem install json`
+ 
+ `gem install httparty`
+ 
+ `gem install rspec`
+
 As stated above, you need a key in order to use the OpenWeatherMap API. 
 
 ### Installing
