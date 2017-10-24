@@ -16,7 +16,11 @@ The API calls are restricted to calling up to a maximum of 20 IDs at one time. T
 
 In order to use the OpenWeatherMap API you will need an API key. In order to recieve one, you will have to sign up for an account [here](https://home.openweathermap.org/users/sign_up). 
 
-This key is appened to the end of the URL request. Place the key in a `yml` file and replace the filename in the `weather_object.rb` file, 
+This key is appened to the end of the URL request. Place the key in a `yml` file as a key value pair i.e. 
+
+`token: 'TOKENKEY'`
+
+and replace the filename in the `weather_object.rb` file, 
 `token = YAML.load_file('FILENAME')` with what you've called your `yml` file. This will allow you to access the data in the api.
 
 
