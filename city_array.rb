@@ -1,18 +1,11 @@
+# This file would have been used to iterate through the ID data array and then write it to a YAML file. As there were over 210,000
+# IDs, I used a sample data instead of the raw data.
+
 require 'json'
 
 json = JSON.parse(File.read('city_list.json'))
-#
-# json[0]['id'].class
-#
-#
-# json.each do |i|
-#    i['id']
-# end
-
 
 json.each do |i|
   File.write('city_code.yml', "- #{i['id']}")
-  # File.open('city_code.yml','w') do |h|
-  #    h.write ("- #{i['id']}").to_yaml
-  #  end
+
 end
