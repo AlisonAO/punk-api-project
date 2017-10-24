@@ -10,6 +10,7 @@ describe 'weather' do
     @city = service.single_location('707860')
     @cities = service.multiple_locations(codes.sample(2)) # Taking the array of the sample data and choosing only two random inputs from that data.
   end
+# <--- Tests for multiple cities ID --->
   context 'multiple city IDs' do
 
     it "should contain 2 hashes of data" do
@@ -20,8 +21,16 @@ describe 'weather' do
        expect(@cities["list"][0]["coord"]["lon"]).to be_kind_of(Float)
     end
 
+    it "longitude should be between -180 to 180" do
+      expect(@cities["list"][0]["coord"]["lon"]).to be_between(-180, 180).inclusive
+    end
+
     it "latitude should be a float" do
       expect(@cities["list"][0]["coord"]["lat"]).to be_kind_of(Float)
+    end
+
+    it "latitude should be between -180 to 180" do
+      expect(@cities["list"][0]["coord"]["lat"]).to be_between(-180, 180).inclusive
     end
 
     it "temperature should be a float" do
@@ -34,19 +43,27 @@ describe 'weather' do
 
   end
 
+# <--- Tests for the single city ID --->
   context 'single city ID' do
 
-    it "text" do
-      # expect(@city["visibility"]).to be_kind_of(Numeric)
-      p @city
+    it "should return only one set of data" do
+     expect(@city["weather"].count).to eq(1)
     end
 
-    it "text" do
-
+    it "country code should be a string" do
+      expect(@city["sys"]["country"]).to be_kind_of(String)
     end
 
-    it "text" do
+    it "country code length should be 2 characters" do
+        expect(@city["sys"]["country"].length).to equal(2)
+    end
 
+    it "weather should be a hash" do
+      expect(@city["weather"]).to be_kind_of(Array)
+    end
+
+    it "weather should be a hash" do
+      expect(@city["weather"]).to be_kind_of(Array)
     end
 
   end
