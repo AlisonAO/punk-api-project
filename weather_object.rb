@@ -11,7 +11,7 @@ class WeatherService
     token = YAML.load_file('token.yml')
     @token = token['token']
   end
-# <--- This will search through the data
+# <--- This will search through the data --->
   def single_location(location)
     JSON.parse(self.class.get("/weather?id=#{location}" + "#{@token}").body)
   end
