@@ -1,5 +1,5 @@
 # Weather API Tests Project
--
+
 A ruby project for test automation of the OpenWeatherMap [OpenWeatherMap](https://openweathermap.org/) API for the current weather data. 
 
 This service creates a class for the OpenWeatherMap API and runs tests that correspond to the data.
